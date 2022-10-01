@@ -7,33 +7,40 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Therapy
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="">
 
-        <label id="example-radio-group-label">Pick your chosen therapy:</label>
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="chosenTherapy">
-          <mat-radio-button class="example-radio-button" *ngFor="let therapy of therapies" [value]="therapy">
-            {{ therapy.name }}
-          </mat-radio-button>
-        </mat-radio-group>
-        <div>Your chosen therapy is: {{ chosenTherapy.name }}</div>
-        <div>Your chosen therapy is: {{ chosenTherapy.option_fields }}</div>
-        <div>Your chosen therapy is: {{ chosenTherapy.slider_fields }}</div>
-      </mat-card-content>
-    </mat-card>
+      <!-- > Therapy Container <!-->
+      <mat-grid-tile>
+        <mat-card class="therapy-container">
+          <mat-card-header>
+            <mat-card-title>
+              Therapy
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+
+            <label id="example-radio-group-label">Pick your chosen therapy:</label>
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              [(ngModel)]="chosenTherapy">
+              <mat-radio-button class="example-radio-button" *ngFor="let therapy of therapies" [value]="therapy">
+                {{ therapy.name }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>2</mat-grid-tile>
+    </mat-grid-list>
+
+
     <div class="mat-elevation-z8">
     </div>
 
 
-    <mat-card>
+    <mat-card class="options-container">
       <mat-card-header>
         <mat-card-title>
           Blabla
@@ -46,5 +53,4 @@
     </mat-card>
 
   </mat-card-content>
-
 </mat-card>

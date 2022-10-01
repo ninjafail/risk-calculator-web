@@ -15,5 +15,13 @@ export class SliderFieldComponent {
     else df.check();
     console.log(df.isChecked)
   }
+
+  displayCheck(df: DataField): string {
+    if (df.isChecked) {
+      return "Yes"
+    } else {
+      return "No"
+    }
+  }
 }
 
