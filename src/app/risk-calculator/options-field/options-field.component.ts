@@ -12,10 +12,6 @@ export class OptionsFieldComponent {
 
   constructor() { }
 
-  render() {
-
-  }
-
   setOption(of: OptionField, df: DataField) {
     of.options.map((df) => df.uncheck())
     df.check()
