@@ -36,22 +36,12 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          Options
+          Blabla
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <app-options-field [optionFields]="chosenTherapy.option_fields"></app-options-field>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Sliders
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <app-options-field [optionFields]="chosenTherapy.option_fields"></app-options-field>
+        <app-slider-field [sliderFields]="chosenTherapy.slider_fields"></app-slider-field>
       </mat-card-content>
     </mat-card>
 

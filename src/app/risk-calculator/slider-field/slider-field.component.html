@@ -1,4 +1,6 @@
-<mat-slide-toggle
-  class="example-margin">
-  Slide me!
-</mat-slide-toggle>
+<mat-list>
+  <mat-list-item *ngFor="let df of sliderFields">
+    <p class="left">{{ df.name }}</p>
+    <mat-slide-toggle (toggleChange)="change(df)">Slide Toggle Checked: {{df.isChecked}}</mat-slide-toggle>
+  </mat-list-item>
+</mat-list>

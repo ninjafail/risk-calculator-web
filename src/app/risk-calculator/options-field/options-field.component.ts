@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {OptionField} from "../therapies";
+import {OptionField} from "../therapy.classes";
 
 @Component({
   selector: 'app-options-field',

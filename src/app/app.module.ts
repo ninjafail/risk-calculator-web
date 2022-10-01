@@ -24,6 +24,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     AppComponent,
     RiskCalculatorComponent,
     OptionsFieldComponent,
+    SliderFieldComponent,
     SliderFieldComponent
   ],
   imports: [
