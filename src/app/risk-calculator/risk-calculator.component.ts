@@ -10,7 +10,7 @@ import {skip} from "rxjs";
 })
 export class RiskCalculatorComponent implements OnInit{
   title: string = "Risk Calculator";
-  subtitle: string = "Calculate your risk of xy in drölf years.";
+  subtitle: string = "Calculate your risk of ligma in drölf years.";
 
   therapies: Therapy[] = THERAPIES_DATA;
   chosenTherapy: Therapy = this.therapies[0];
