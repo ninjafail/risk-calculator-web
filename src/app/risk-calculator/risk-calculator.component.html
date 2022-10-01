@@ -18,7 +18,6 @@
             </mat-card-title>
           </mat-card-header>
           <mat-card-content>
-
             <label id="example-radio-group-label">Pick your chosen therapy:</label>
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
@@ -32,7 +31,21 @@
         </mat-card>
       </mat-grid-tile>
 
-      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="therapy-container">
+          <mat-card-header>
+            <mat-card-title>
+              Risk
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Your estimated risk for ligma is:</p>
+            <div class="risk-result">
+              {{ calculateRisk() }}
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
     </mat-grid-list>
 
 

@@ -40,6 +40,11 @@ export class DataField implements DataFieldInterface{
   uncheck() {
     this.isChecked = false;
   }
+
+  getWeight(): number {
+    if (this.isChecked) return this.weight.valueOf()
+    return 0
+  }
 }
 
 export class OptionField implements OptionFieldInterface {
