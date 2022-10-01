@@ -40,7 +40,11 @@
           </mat-card-header>
           <mat-card-content>
             <p>Your estimated risk for ligma is:</p>
-            <div class="risk-result">
+
+            <button mat-raised-button [color]="resultColor">
+              {{ resultName }}
+            </button>
+            <div style="text-align: center">
               {{ calculateRisk() }}
             </div>
           </mat-card-content>

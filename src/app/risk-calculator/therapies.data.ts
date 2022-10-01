@@ -1,11 +1,11 @@
 import { Weight, Therapy, TherapyInterface, createTherapy } from "./therapy.classes";
 
 // Short Names for Weights
-const L: Weight = Weight.L;
-const M1: Weight = Weight.M1;
-const M2: Weight = Weight.M2;
-const H: Weight = Weight.H;
-const VH: Weight = Weight.VH;
+export const L: Weight = Weight.L;
+export const M1: Weight = Weight.M1;
+export const M2: Weight = Weight.M2;
+export const H: Weight = Weight.H;
+export const VH: Weight = Weight.VH;
 
 
 // Therapy Interfaces (the raw data), which need to registered in therapiesRawData at the bottom
