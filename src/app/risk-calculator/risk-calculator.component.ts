@@ -19,8 +19,8 @@ import {FormControl} from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class RiskCalculatorComponent implements OnInit {
-  title: string = "Risk Calculator";
-  subtitle: string = "Calculate your risk of ligma in drölf years.";
+  title: string = "Baseline cardiovascular toxicity risk stratification";
+  subtitle: string = "Calculate your baseline cardiovascular toxicity risk";
 
   therapies: Therapy[] = THERAPIES_DATA;
   chosenTherapy: Therapy = this.therapies[0];
