@@ -48,7 +48,7 @@
             <button *ngIf="FLAG" mat-raised-button [color]="resultColor">
               {{ resultName }}
             </button>
-            <div style="text-align: center" (change)="displayResult()">
+            <div style="text-align: center" (change)="displayResult()" hidden>
               {{ calculateRisk() }}
             </div>
           </mat-card-content>
