@@ -41,10 +41,10 @@
           <mat-card-content>
             <p>Your estimated risk for ligma is:</p>
 
-            <button mat-raised-button [color]="resultColor">
+            <button *ngIf="FLAG" mat-raised-button [color]="resultColor">
               {{ resultName }}
             </button>
-            <div style="text-align: center">
+            <div style="text-align: center" (change)="displayResult()">
               {{ calculateRisk() }}
             </div>
           </mat-card-content>

@@ -1,27 +1,36 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
-import {Therapy, OptionField, DataField, Weight} from "./therapy.classes";
-import { THERAPIES_DATA } from "./therapies.data";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import {DataField, OptionField, Therapy, Weight} from "./therapy.classes";
+import {THERAPIES_DATA} from "./therapies.data";
 import {ThemePalette} from "@angular/material/core";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-risk-calculator',
   templateUrl: './risk-calculator.component.html',
-  styleUrls: ['./risk-calculator.component.css']
+  styleUrls: ['./risk-calculator.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class RiskCalculatorComponent implements OnInit{
+export class RiskCalculatorComponent implements OnInit {
   title: string = "Risk Calculator";
   subtitle: string = "Calculate your risk of ligma in drölf years.";
 
   therapies: Therapy[] = THERAPIES_DATA;
   chosenTherapy: Therapy = this.therapies[0];
+  resName = new FormControl("LOW");
+  colorPlain: ThemePalette = undefined;
+  resColor = new FormControl(this.colorPlain);
+
+  FLAG = true;
   resultName: string = "LOW";
-  resultColor: ThemePalette = undefined;
-  weights = {
-    m1: Weight.M1,
-    m2: Weight.M2,
-    h: Weight.H,
-    vh: Weight.VH,
-  }
+  @Input() resultColor: ThemePalette = undefined;
   risk: number = 0;
 
   constructor() {
@@ -36,6 +45,19 @@ export class RiskCalculatorComponent implements OnInit{
   }
 
   displayResult() {
+    if (this.risk < Weight.M1) {
+      this.resName.setValue("LOW");
+      this.resColor.setValue(this.colorPlain);
+    } else if (this.risk < Weight.H) {
+      this.resName.setValue("MEDIUM");
+      this.resColor.setValue("primary");
+    } else if (this.risk < Weight.VH) {
+      this.resName.setValue("HIGH");
+      this.resColor.setValue("accent");
+    } else {
+      this.resName.setValue("VERY HIGH");
+      this.resColor.setValue("warn");
+    }
     if (this.risk < Weight.M1) {
       this.resultName = "LOW";
       this.resultColor = undefined;
