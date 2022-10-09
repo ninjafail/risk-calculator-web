@@ -1,14 +1,14 @@
 # RiskCalculatorWeb
 
+This project's purpose is to write a small tool, that can calculate the risk of baseline cardiovascular toxicity, based on the 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022), while learning about angular. It is hosted on github pages (https://ninjafail.github.io/risk-calculator-web/).
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
