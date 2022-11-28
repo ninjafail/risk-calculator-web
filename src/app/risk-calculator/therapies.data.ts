@@ -174,7 +174,7 @@ let therapyD: TherapyInterface = {
 
 
 let therapyE: TherapyInterface = {
-  name: "Multiple myeloma ",
+  name: "Multiple Myeloma therapy",
   option_fields: [
     {
         name: "Age",
