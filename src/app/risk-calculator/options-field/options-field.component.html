@@ -4,7 +4,7 @@
       <mat-radio-group class="right">
           <mat-radio-button *ngFor="let dfoption of optionField.options" [value]="dfoption"
                             (change)="setOption(optionField, dfoption)"
-                            [checked]="dfoption.isChecked">
+                            [checked]="dfoption.isChecked()">
             {{ dfoption.name }}
           </mat-radio-button>
       </mat-radio-group>

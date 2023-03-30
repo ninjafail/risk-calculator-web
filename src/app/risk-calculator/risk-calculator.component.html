@@ -9,69 +9,71 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-grid-list cols="2" rowHeight="">
-
       <!-- > Therapy Container <!-->
-      <mat-grid-tile>
-        <mat-card class="therapy-container">
+        <mat-card class="cell-container">
           <mat-card-header>
-            <mat-card-title>
-              Planned chemotherapy
-            </mat-card-title>
-            <mat-card-subtitle>
-              Pick your chosen therapy:
-            </mat-card-subtitle>
+            <mat-card-title> Planned chemotherapy </mat-card-title>
+            <mat-card-subtitle> Pick your chosen therapy: </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <mat-radio-group
               class="example-radio-group"
-              [(ngModel)]="chosenTherapy">
-              <mat-radio-button class="example-radio-button" *ngFor="let therapy of therapies" [value]="therapy">
+              [(ngModel)]="chosenTherapy"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let therapy of therapies"
+                [value]="therapy"
+              >
                 {{ therapy.name }}
               </mat-radio-button>
             </mat-radio-group>
           </mat-card-content>
         </mat-card>
-      </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-card class="therapy-container">
+        <mat-card class="cell-container">
           <mat-card-header>
-            <mat-card-title>
-              Risk
-            </mat-card-title>
-            <mat-card-subtitle>
-              Your estimated risk is:
-            </mat-card-subtitle>
+            <mat-card-title> Risk </mat-card-title>
+            <mat-card-subtitle> Your estimated risk is: </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <button *ngIf="FLAG" mat-raised-button [color]="resultColor">
               {{ resultName }}
             </button>
-            <div hidden style="text-align: center" (change)="displayResult()">
+            <div hidden (change)="displayResult()">
               {{ calculateRisk() }}
             </div>
           </mat-card-content>
+          &nbsp;
+          <mat-card-header>
+            <mat-card-title> Recommendations </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item class="recommendation" *ngFor="let rec of resultRecommendation?.recommendations">
+                  {{ rec }}
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>    
         </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
 
-
-    <mat-card class="options-container">
+    <mat-card class="cell-container">
       <mat-card-header>
-        <mat-card-title>
-          Options
-        </mat-card-title>
+        <mat-card-title> Options </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <app-options-field [optionFields]="chosenTherapy.option_fields"></app-options-field>
-        <app-slider-field [sliderFields]="chosenTherapy.slider_fields"></app-slider-field>
+        <app-options-field
+          [optionFields]="chosenTherapy.option_fields"
+        ></app-options-field>
+        <app-slider-field
+          [sliderFields]="chosenTherapy.slider_fields"
+        ></app-slider-field>
       </mat-card-content>
     </mat-card>
-
   </mat-card-content>
   <mat-card-footer>
-    *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). Usage is at your own risk. No warranty or responsibility taken by the host or its head association.
+    *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). Usage
+    is at your own risk. No warranty or responsibility taken by the host or its
+    head association.
   </mat-card-footer>
 </mat-card>
-

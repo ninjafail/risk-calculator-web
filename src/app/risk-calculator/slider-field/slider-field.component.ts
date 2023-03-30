@@ -11,13 +11,13 @@ export class SliderFieldComponent {
   constructor() { }
 
   change(df: DataField) {
-    if (df.isChecked) df.uncheck();
+    if (df.isChecked()) df.uncheck();
     else df.check();
-    console.log(df.isChecked)
+    console.log(df.isChecked())
   }
 
   displayCheck(df: DataField): string {
-    if (df.isChecked) {
+    if (df.isChecked()) {
       return "Yes"
     } else {
       return "No"

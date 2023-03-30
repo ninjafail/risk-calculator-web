@@ -10,11 +10,11 @@
   width: 100%;
   height: 70%;
   padding: 40px;
-  margin: 10px;
+  margin: 5px;
   align-self: center;
 }
 
-.options-container {
+.cell-container {
   width: 88%;
   height: 70%;
   padding: 40px;
@@ -22,22 +22,15 @@
   align-self: center;
 }
 
-.risk-result {
-  margin-top: 30%;
-  font-size: xx-large;
-  text-align: center;
-}
-
-
 .mat-raised-button {
   align-self: center;
   text-align: center;
-  width: 100%;
-  height: 100px;
-  font-size: xxx-large;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 90%;
+  height: 4rem;
+  margin-left: 5%;
+  font-size: xx-large;
 }
+
 .form-field {
   align-self: center;
   align-items: center;
@@ -63,7 +56,11 @@ table {
   width: 100%;
 }
 
-td, th {
+td,
+th {
   width: 25%;
 }
 
+.recommendation {
+  height: 1.5rem !important;
+}
