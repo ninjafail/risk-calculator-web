@@ -27,9 +27,9 @@ let therapyA: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: M2 },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -56,31 +56,31 @@ let therapyA: TherapyInterface = {
     {
       condition: { type: 'RANGE', range: [0, 1] },
       recommendations: [
-        'Baseline EKG, TTE, cTnT/NT-proBNP empfohlen',
-        'TnT-Kontrollen zu Zyklus 2,4,6 möglich',
-        'TTE-Kontrolle zu Zyklus 4 möglich',
-        'TnT-Kontrolle 3 Monate nach Abschluss der Therapie möglich',
-        'Wiedervorstellung zur TTE-Kontrolle 12 Monate nach Therapie empfohlen',
+        'Baseline ECG, TTE, cardiac troponin/NT-proBNP recommended',
+        'Cardiac troponin-Controls at cycles 2,4,6 may be considered',
+        'TTE-Control at cycle 4 may be considered',
+        'Cardiac troponin-Control 3 months post treatment may be considered',
+        'TTE-Control follow up 12 months post treatment recommended',
       ],
     },
     {
       condition: { type: 'RANGE', range: [2, 4] },
       recommendations: [
-        'Baseline EKG, TTE, cTnT/NT-proBNP empfohlen',
-        'TnT-Kontrollen zu Zyklus 2,4,6 sinnvoll',
-        'TTE-Kontrolle zu Zyklus 4 sinnvoll',
-        'TTE-& TnT-Kontrolle 3 Monate nach Abschluss der Therapie sinnvoll',
-        'Wiedervorstellung zur TTE-Kontrolle 12 Monate nach Therapie empfohlen',
+        'Baseline ECG, TTE, cardiac troponin/NT-proBNP recommended',
+        'Cardiac troponin-Controls at cycles 2,4,6 should be considered',
+        'TTE-Control at cycle 4 should be considered',
+        'TTE-& cardiac troponin-Control 3 months post treatment should be considered',
+        'TTE-Control follow up 12 months post treatment recommended',
       ],
     },
     {
       condition: { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
       recommendations: [
-        'Baseline ECG, TTE, cTnT/NT-proBNP empfohlen',
-        'TnT-Kontrollen zu jedem Zyklus empfohlen',
-        'TTE-Kontrolle zu jedem zweiten Zyklus empfohlen',
-        'TTE-& TnT-Kontrolle 3 Monate nach Abschluss der Therapie empfohlen',
-        'TTE-Kontrolle 12 Monate nach Therapie empfohlen',
+        'Baseline ECG, TTE, cardiac troponin/NT-proBNP recommended',
+        'Cardiac troponin-Controls every cycle recommended',
+        'TTE-Control at cycles 2,4,6 recommended',
+        'TTE-& cardiac troponin-Control 3 months post treatment recommended',
+        'TTE-Control 12 months post treatment recommended',
       ],
     },
   ],
@@ -100,9 +100,9 @@ let therapyB: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: M2 },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -131,20 +131,20 @@ let therapyB: TherapyInterface = {
     {
       condition: { type: 'RANGE', range: [0, 4] },
       recommendations: [
-        'Anti-HER-2-Therapie Low/Medium Risk Group',
-        'Baseline ECG, TTE, cTnT/NT-proBNP empfohlen',
-        'TTE-Kontrolle alle 3 Monate während Therapie empfohlen',
-        'TnT/BNP-Kontrollen als Therapiemonitoring möglich',
-        'TTE-Kontrolle 12 Monate nach Therapie empfohlen',
+        'Baseline ECG, TTE, cardiac troponin/NT-proBNP recommended',
+        'TTE-Control every 3 months during treatment recommended',
+        'Cardiac troponin/BNP-Controls during treatment may be considered',
+        'Cardiac troponin/BNP-Controls 12 months post treatment may be considered',
+        'TTE-Control 12 months post treatment recommended',
       ],
     },
     {
       condition: { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
       recommendations: [
-        'Baseline ECG, TTE, cTnT/NT-proBNP empfohlen',
-        'TTE/Biomarker-Kontrolle alle 3 Monate während Therapie empfohlen',
-        'TTE/Biomarker-Kontrolle 3 Monate nach Abschluss der Therapie empfohlen',
-        'TTE/Biomarker-Kontrolle 12 Monate nach Therapie empfohlen',
+        'Baseline ECG, TTE, cardiac troponin/NT-proBNP recommended',
+        'TTE/cardiac troponin/BNP-Controls every 3 months during treatment recommended',
+        'TTE/cardiac troponin/BNP-Controls 3 months post treatment recommended',
+        'TTE/cardiac troponin/BNP-Controls 12 months post treatment recommended',
       ],
     },
   ],
@@ -164,9 +164,9 @@ let therapyC: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: M2 },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -201,35 +201,41 @@ let therapyC: TherapyInterface = {
     {
       condition: { type: 'RANGE', range: [0, 1] },
       recommendations: [
-        'Baseline EKG, TTE empfohlen',
-        'Bei unauffälligem Verlauf keine weitere Wiedervorstellung notwendig',
+        'Baseline ECG recommended',
+        'Baseline TTE should be considered',
+        'Home BP monitoring is recommended daily during the first cycle, after each increase of anticancer treatment dose, and every 2–3 weeks thereafter',
+        'No scheduled follow ups necessary'
       ],
     },
     {
       condition: { type: 'RANGE', range: [2, 4] },
       recommendations: [
-        'Baseline EKG, TTE, NT-proBNP empfohlen',
-        'TTE/NT-proBNP-Kontrolle alle 4 Monate während Therapie möglich',
-        'Im Anschluss ist eine TTE-Kontrolle alle 6-12 Monate während Therapie sinnvoll',
+        'Baseline ECG recommended,',
+        'Baseline TTE should be considered',
+        'Baseline NT-proBNP may be considered',
+        'TTE/NT-proBNP-Control every 4 months during treatment may be considered',
+        'TTE-Control every 6-12 months during treatment should be considered',
       ],
     },
     {
       condition: { type: 'RANGE', range: [5, 99] },
       recommendations: [
-        'Baseline EKG, TTE, NT-proBNP empfohlen',
-        'EKG-Kontrolle 2 Wochen nach Therapiebeginn und bei Dosissteigerung empfohlen',
-        'TTE/NT-proBNP-Kontrollen alle 3 Monate während Therapie sinnvoll',
-        'Im Anschluss ist eine TTE-Kontrolle alle 6-12 Monate während Therapie sinnvoll',
+        'Baseline ECG, TTE recommended',
+        'Baseline NT-proBNP should be considered',
+        'ECG-Control 2 weeks after intitiation of treatment and when increasing the dose recommended',
+        'TTE/NT-proBNP-Controls every 3 months during treatment should be considered',
+        'TTE-Control every 6-12 months during treatment should be considered',
       ],
     },
     {
       condition: { type: 'RANGE', range: [100, Number.POSITIVE_INFINITY] },
       recommendations: [
-        'Baseline EKG, TTE, NT-proBNP empfohlen',
-        'EKG-Kontrolle 2 Wochen nach Therapiebeginn und bei Dosissteigerung empfohlen',
-        'TTE/NT-proBNP-Kontrolle 4 Wochen nach Therapiebeginn sinnvoll',
-        'TTE/NT-proBNP-Kontrollen alle 3 Monate während Therapie sinnvoll',
-        'Im Anschluss ist eine TTE-Kontrolle alle 6-12 Monate während Therapie sinnvoll',
+        'Baseline ECG, TTE recommended',
+        'Baseline NT-proBNP should be considered',
+        'ECG-Control 2 weeks after intitiation of treatment and when increasing the dose recommended',
+        'TTE-Control 4 weeks after intitiation of treatment recommended',
+        'TTE/NT-proBNP-Controls every 3 months during treatment should be considered',
+        'TTE-Control every 6-12 months during treatment should be considered',
       ],
     },
   ],
@@ -250,9 +256,9 @@ let therapyD: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: L },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -283,19 +289,19 @@ let therapyD: TherapyInterface = {
       condition: { type: 'RANGE', range: [0, 4] },
       recommendations: [
         'BCR-ABL-TKI',
-        'Baseline EKG, Lipid-Profil/HbA1c-Messung und TTE empfohlen',
-        'Nilotinib/Ponatinib: EKG, Lipid-Profil/HbA1c-Messung alle 3 Monate unter Therapie empfohlen',
-        'Nilotinib/Ponatinib: ABI-Messung Baseline sowie alle 6 Monate unter Therapie möglich',
+        'Baseline ECG, Lipid-profile/HbA1c-Control and TTE recommended',
+        'Nilotinib/Ponatinib: ECG, Lipid-profile/HbA1c-Control every 3 months during treatment recommended',
+        'Nilotinib/Ponatinib: Baseline ABI-Control and every 6 months during treatment may be considered',
       ],
     },
     {
       condition: { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
       recommendations: [
         'BCR-ABL-TKI',
-        'Baseline EKG, Lipid-Profil/HbA1c-Messung und TTE empfohlen',
-        'Nilotinib/Ponatinib: EKG, Lipid-Profil/HbA1c-Messung alle 3 Monate unter Therapie empfohlen',
-        'Nilotinib/Ponatinib: ABI-Messung Baseline sowie alle 6 Monate unter Therapie möglich',
-        'Dasatinib/Posatinib: TTE-Kontrolle alle 3 Monate sinnvoll',
+        'Baseline ECG, Lipid-profile/HbA1c-Control and TTE recommended',
+        'Nilotinib/Ponatinib: ECG, Lipid-profile/HbA1c-Control every 3 months during treatment recommended',
+        'Nilotinib/Ponatinib: Baseline ABI-Control and every 6 months during treatment may be considered',
+        'Dasatinib/Posatinib: TTE-Control every 3 months should be considered',
       ],
     },
   ],
@@ -315,9 +321,9 @@ let therapyE: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: M2 },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -347,22 +353,14 @@ let therapyE: TherapyInterface = {
     { name: 'Obesity (BMI>30kg/m2)', weight: M1 },
   ],
   recommendations: [
-    // if C_Amyloidose.Checked
-    /* 'Proteasome Inhibitor + kardiale Amyloidose'
-        Baseline EKG, TnT, NT-proBNP, TTE und Kardio-MRT empfohlen
-        Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen
-        Biomarker alle 3-6 Monate unter Therapie empfohlen
-        TTE alle 3 Zyklen sinnvoll
-    */
-    // else range
     {
       condition: { type: 'SELECT', select: 'Cardiac amyloidosis' },
       recommendations: [
-        'Proteasome Inhibitor + kardiale Amyloidose',
-        'Baseline EKG, TnT, NT-proBNP, TTE und Kardio-MRT empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'Biomarker alle 3-6 Monate unter Therapie empfohlen',
-        'TTE alle 3 Zyklen sinnvoll',
+        'Baseline ECG, cardiac troponin, NT-proBNP, TTE and cardiac-MRI recommended',
+        'Blood pressure monitoring at every clinical visit during treatment recommended',
+        'Blood pressure monitoring daily at home during treatment should be considered',
+        'Biomarker every 3-6 months during treatment recommended',
+        'TTE every 3 cycles should be considered',
       ],
     },
     {
@@ -377,10 +375,12 @@ let therapyE: TherapyInterface = {
         ],
       },
       recommendations: [
-        'Baseline EKG, NT-proBNP und TTE empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'NT-proBNP jeden Zyklus während der ersten 6 Zyklen unter Carfilzomib oder Bortezomib sinnvoll',
-        'TTE alle 3 Zyklen unter Carfilzomib möglich',
+        'Baseline ECG, cardiac troponin, TTE and cardiac-MRI recommended',
+        'Baseline NT-proBNP should be considered',
+        'Blood pressure monitoring at every clinical visit during treatment recommended',
+        'Blood pressure monitoring daily at home during treatment should be considered',
+        'NT-proBNP every cycle during the first 6 cycles under Carfilzomib or Bortezomib should be considered',
+        'TTE every 3 cycles under Carfilzomib may be considered',
       ],
     },
     {
@@ -395,10 +395,11 @@ let therapyE: TherapyInterface = {
         ],
       },
       recommendations: [
-        'Baseline EKG, NT-proBNP und TTE empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'NT-proBNP jeden Zyklus während der ersten 6 Zyklen unter Carfilzomib oder Bortezomib sinnvoll',
-        'TTE alle 3 Zyklen unter Carfilzomib möglich',
+        'Baseline ECG, cardiac troponin, NT-proBNP, TTE and cardiac-MRI recommended',
+        'Blood pressure monitoring at every clinical visit during treatment recommended',
+        'Blood pressure monitoring daily at home during treatment should be considered',
+        'NT-proBNP every cycle during the first 6 cycles under Carfilzomib or Bortezomib should be considered',
+        'TTE every 3 cycles under Carfilzomib should be considered',
       ],
     },
   ],
@@ -417,9 +418,9 @@ let therapyF: TherapyInterface = {
     {
       name: 'LVEF',
       options: [
-        { name: '<50%', weight: H },
+        { name: '< 50%', weight: H },
         { name: '50-54%', weight: M2 },
-        { name: '>=55%', weight: L },
+        { name: '≥ 55%', weight: L },
       ],
     },
   ],
@@ -444,101 +445,26 @@ let therapyF: TherapyInterface = {
   ],
   recommendations: [
     {
-      condition: { type: 'RANGE', range: [0, 1] },
+      condition: { type: 'RANGE', range: [0, 4] },
       recommendations: [
-        'Baseline EKG empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'Cobimetinib/Vemurafenib: EKG nach 2 & 4 Wochen nach Therapiestart, sowie danach alle 3 Monate empfohlen',
-      ],
-    },
-    {
-      condition: { type: 'RANGE', range: [2, 4] },
-      recommendations: [
-        'Baseline EKG & TTE empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'Cobimetinib/Vemurafenib: EKG nach 2 & 4 Wochen nach Therapiestart, sowie danach alle 3 Monate empfohlen',
+        'Baseline ECG recommended',
+        'Baseline TTE may be considered',
+        'Blood pressure monitoring at each clinical visit and weekly outpatient monitoring during the first 3 months of treatment and monthly thereafter recommended',
+        'Cobimetinib/Vemurafenib: ECG 2 & 4 weeks after initiation of treatment and every 3 months thereafter recommended',
       ],
     },
     {
       condition: { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
       recommendations: [
-        'Baseline EKG & TTE empfohlen',
-        'Blutdruck-Messung bei jedem Besuch sowie häusliche Messungen unter Therapie empfohlen',
-        'Cobimetinib/Vemurafenib: EKG nach 2 & 4 Wochen nach Therapiestart, sowie danach alle 3 Monate empfohlen',
-        'TTE-Kontrolle alle 6-12 Monate sinnvoll',
+        'Baseline ECG & TTE recommended',
+        'Blood pressure monitoring at each clinical visit and weekly outpatient monitoring during the first 3 months of treatment and monthly thereafter recommended',
+        'Cobimetinib/Vemurafenib: ECG 2 & 4 weeks after initiation of treatment and every 3 months thereafter recommended',
+        'TTE-Control every 4 months should be considered',
       ],
     },
   ],
 };
 
-let test: TherapyInterface = {
-  name: 'name of the therapy',
-  option_fields: [
-    {
-      name: 'field with multiple options',
-      options: [
-        { name: 'option 1', weight: L },
-        { name: 'option 2', weight: M1 },
-        { name: 'option 3', weight: M2 },
-      ],
-    },
-    {
-      name: 'another field with multiple options',
-      options: [
-        { name: 'option 1', weight: H },
-        { name: 'option 2', weight: VH },
-        { name: 'option 3', weight: L },
-      ],
-    },
-  ],
-  slider_fields: [
-    { name: 'field 1 with an yes/no option', weight: L },
-    { name: 'field 2 with an yes/no option', weight: H },
-    { name: 'field 3 with an yes/no option', weight: M2 },
-    { name: 'field 4 with an yes/no option', weight: M1 },
-    { name: 'field 5 with an yes/no option', weight: VH },
-    { name: 'field 6 with an yes/no option', weight: M2 },
-    { name: 'field x with an yes/no option', weight: L },
-  ],
-  recommendations: [
-    {
-      condition: { type: 'RANGE', range: [0, 1] },
-      recommendations: [
-        'Recommendation 1',
-        'Recommendation 2',
-        'Recommendation 3',
-        '...',
-      ],
-    },
-    {
-      condition: { type: 'RANGE', range: [2, 4] },
-      recommendations: ['blabla', '...'],
-    },
-    {
-      condition: {
-        type: 'AND',
-        conditions: [
-          {
-            type: 'OR',
-            conditions: [
-              { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
-              { type: 'SELECT', select: 'field 4 with an yes/no option' },
-            ],
-          },
-          {
-            type: 'NOT',
-            condition: {
-              type: 'OPTION',
-              option: 'another field with multiple options',
-              value: 'option 2',
-            },
-          },
-        ],
-      },
-      recommendations: ['1337', '...'],
-    },
-  ],
-};
 let therapiesRawData: TherapyInterface[] = [
   therapyA,
   therapyB,
