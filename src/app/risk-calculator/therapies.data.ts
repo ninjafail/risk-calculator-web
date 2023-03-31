@@ -369,7 +369,10 @@ let therapyE: TherapyInterface = {
       condition: {
         type: 'AND',
         conditions: [
-          { type: 'NOT', condition: { type: 'SELECT', select: 'Cardiac amyloidosis' } },
+          {
+            type: 'NOT',
+            condition: { type: 'SELECT', select: 'Cardiac amyloidosis' },
+          },
           { type: 'RANGE', range: [0, 4] },
         ],
       },
@@ -384,7 +387,10 @@ let therapyE: TherapyInterface = {
       condition: {
         type: 'AND',
         conditions: [
-          { type: 'NOT', condition: { type: 'SELECT', select: 'Cardiac amyloidosis' } },
+          {
+            type: 'NOT',
+            condition: { type: 'SELECT', select: 'Cardiac amyloidosis' },
+          },
           { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
         ],
       },
@@ -465,6 +471,74 @@ let therapyF: TherapyInterface = {
   ],
 };
 
+let test: TherapyInterface = {
+  name: 'name of the therapy',
+  option_fields: [
+    {
+      name: 'field with multiple options',
+      options: [
+        { name: 'option 1', weight: L },
+        { name: 'option 2', weight: M1 },
+        { name: 'option 3', weight: M2 },
+      ],
+    },
+    {
+      name: 'another field with multiple options',
+      options: [
+        { name: 'option 1', weight: H },
+        { name: 'option 2', weight: VH },
+        { name: 'option 3', weight: L },
+      ],
+    },
+  ],
+  slider_fields: [
+    { name: 'field 1 with an yes/no option', weight: L },
+    { name: 'field 2 with an yes/no option', weight: H },
+    { name: 'field 3 with an yes/no option', weight: M2 },
+    { name: 'field 4 with an yes/no option', weight: M1 },
+    { name: 'field 5 with an yes/no option', weight: VH },
+    { name: 'field 6 with an yes/no option', weight: M2 },
+    { name: 'field x with an yes/no option', weight: L },
+  ],
+  recommendations: [
+    {
+      condition: { type: 'RANGE', range: [0, 1] },
+      recommendations: [
+        'Recommendation 1',
+        'Recommendation 2',
+        'Recommendation 3',
+        '...',
+      ],
+    },
+    {
+      condition: { type: 'RANGE', range: [2, 4] },
+      recommendations: ['blabla', '...'],
+    },
+    {
+      condition: {
+        type: 'AND',
+        conditions: [
+          {
+            type: 'OR',
+            conditions: [
+              { type: 'RANGE', range: [5, Number.POSITIVE_INFINITY] },
+              { type: 'SELECT', select: 'field 4 with an yes/no option' },
+            ],
+          },
+          {
+            type: 'NOT',
+            condition: {
+              type: 'OPTION',
+              option: 'another field with multiple options',
+              value: 'option 2',
+            },
+          },
+        ],
+      },
+      recommendations: ['1337', '...'],
+    },
+  ],
+};
 let therapiesRawData: TherapyInterface[] = [
   therapyA,
   therapyB,
