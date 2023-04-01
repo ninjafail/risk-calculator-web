@@ -65,7 +65,18 @@
     <!-- > Options <!-->
     <mat-card class="cell-container">
       <mat-card-header>
-        <mat-card-title> Options </mat-card-title>
+        <div class="flex-container">
+          <mat-card-title>
+            <div>Options</div>
+          </mat-card-title>
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="reset(chosenTherapy)"
+          >
+            reset
+          </button>
+        </div>
       </mat-card-header>
       <mat-card-content>
         <app-options-field
@@ -77,10 +88,10 @@
       </mat-card-content>
     </mat-card>
   </mat-card-content>
-    <p class="footer">
-      *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). 
-      Usage is at your own risk. No warranty or responsibility taken by the host or
-      its head association.
-    </p>
-    <p>&nbsp;</p>
-  </mat-card>
+  <p class="footer">
+    *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). Usage
+    is at your own risk. No warranty or responsibility taken by the host or its
+    head association.
+  </p>
+  <p>&nbsp;</p>
+</mat-card>

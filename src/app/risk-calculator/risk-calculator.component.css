@@ -55,3 +55,10 @@ body, html {
   margin: 1rem;
   text-align: center;
 }
+
+.flex-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

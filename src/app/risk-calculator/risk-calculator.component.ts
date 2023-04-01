@@ -45,17 +45,20 @@ export class RiskCalculatorComponent implements OnInit {
 
   ngOnInit() {
     for (let therapy of this.therapies) {
-      // should not be the case, but if another value is checked, this does not uncheck the other options,
-      // possibly in resulting into multiple checked options(radio-buttons)
-      therapy.option_fields.map((of) => {
-        if (of.name === 'LVEF') {
-          of.options[of.options.length - 1].check();
-        } else {
-          of.options[0].check();
-        }
-      });
-      // (of.options.find((df) => df.weight === Weight.L)??of.options[0]).check()
+      this.reset(therapy);
     }
+  }
+
+  reset(therapy: Therapy) {
+    // should not be the case, but if another value is checked, this does not uncheck the other options,
+    // possibly in resulting into multiple checked options(radio-buttons)
+    therapy.option_fields.map((of) => {
+      of.options.map((df) => df.uncheck());
+      if (of.name === 'LVEF') of.options[of.options.length - 1].check();
+      else of.options[0].check();
+    });
+    therapy.slider_fields.map((df) => df.uncheck())
+    // (of.options.find((df) => df.weight === Weight.L)??of.options[0]).check()
     this.calculateRisk();
   }
 
@@ -117,12 +120,13 @@ export class RiskCalculatorComponent implements OnInit {
   }
 
   giveRecommendation() {
-    this.resultRecommendation = this.chosenTherapy.recommendations.find((rec) => {
-      const condition = rec.condition;
-      console.log(condition)
-      console.log(this.isConditionTrue(condition))
-      return this.isConditionTrue(rec.condition)
-    }
+    this.resultRecommendation = this.chosenTherapy.recommendations.find(
+      (rec) => {
+        const condition = rec.condition;
+        console.log(condition);
+        console.log(this.isConditionTrue(condition));
+        return this.isConditionTrue(rec.condition);
+      }
     );
   }
 
