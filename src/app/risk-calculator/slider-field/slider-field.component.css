@@ -1,12 +1,10 @@
-.mat-slide-toggle {
-  display: flex;
+.flex-container {
   width: 100%;
-  justify-content: space-around;
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.left {
-  width: 500px;
-  float: left;
-  margin-right: 50px;
+.flex-container p {
+  margin-right: 1rem;
 }

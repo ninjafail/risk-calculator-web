@@ -1,12 +1,17 @@
 <mat-list>
   <mat-list-item *ngFor="let optionField of optionFields">
-      <p class="left">{{ optionField.name }}</p>
-      <mat-radio-group class="right">
-          <mat-radio-button *ngFor="let dfoption of optionField.options" [value]="dfoption"
-                            (change)="setOption(optionField, dfoption)"
-                            [checked]="dfoption.isChecked()">
-            {{ dfoption.name }}
-          </mat-radio-button>
+    <div class="flex-container">
+      <p>{{ optionField.name }}</p>
+      <mat-radio-group>
+        <mat-radio-button
+          *ngFor="let dfoption of optionField.options"
+          [value]="dfoption"
+          (change)="setOption(optionField, dfoption)"
+          [checked]="dfoption.isChecked()"
+        >
+          {{ dfoption.name }}
+        </mat-radio-button>
       </mat-radio-group>
+    </div>
   </mat-list-item>
 </mat-list>

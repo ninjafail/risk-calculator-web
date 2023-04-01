@@ -1,12 +1,18 @@
 .mat-radio-group {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
-  float: right;
-}
-.left {
-  width: 200px;
-  float: left;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 1rem;
 }
 
+.flex-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-container p {
+  margin-right: 1rem;
+}
 
