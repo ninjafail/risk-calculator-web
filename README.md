@@ -94,7 +94,7 @@ OR        := { type: 'OR',      conditions: [ CONDITION, CONDITION ] }
 NOT       := { type: 'NOT',     condition: CONDITION }
 RANGE     := { type: 'RANGE',   range: [ result_min, result_max ] } // both included
 SELECT    := { type: 'SELECT',  select: 'name of select_field to be set to yes' }
-OPTION    := { type: 'OPTION',  option: 'name of option_field', value 'name of the option that should be selected' }
+OPTION    := { type: 'OPTION',  option: 'name of option_field', value: 'name of the option that should be selected' }
 ```
 
 If you need more examples, please look at the file [therapies.data.ts](https://github.com/ninjafail/risk-calculator-web/blob/3e7b668f934705c4b804f0bd000412a90020409d/src/app/risk-calculator/therapies.data.ts).
