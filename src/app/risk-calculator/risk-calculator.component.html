@@ -14,6 +14,7 @@
           <mat-label>Pick your planned chemotherapy:</mat-label>
         <mat-select
           [(value)]="chosenTherapy"
+          color="primary"
         >
           <mat-option
             *ngFor="let therapy of therapies"
@@ -31,7 +32,7 @@
         <mat-card-subtitle> Your estimated risk is: </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <button *ngIf="FLAG" mat-raised-button [color]="resultColor">
+        <button *ngIf="FLAG" mat-raised-button class="risk-button" [color]="resultColor">
           {{ resultName }}
         </button>
         <div hidden (change)="displayResult()">
