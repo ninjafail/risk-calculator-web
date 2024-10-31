@@ -25,12 +25,19 @@
   align-self: center;
 }
 
-.risk-button {
+.risk-button-container {
+  display: flex; /* Add this line */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 1%;
+  width: 100%;
   align-self: center;
+}
+
+.risk-button {
   text-align: center;
   width: 90%;
   height: 4rem;
-  margin-left: 5%;
   font-size: xx-large;
 }
 
