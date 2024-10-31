@@ -1,92 +1,85 @@
-<div class="risk-calc-container">
-  <mat-card-header>
-    <mat-card-title>
-      {{ title }}
-    </mat-card-title>
-    <mat-card-subtitle>
-      {{ subtitle }}
-    </mat-card-subtitle>
-  </mat-card-header>
+<mat-card-header>
+  <mat-card-title>
+    {{ title }}
+  </mat-card-title>
+  <mat-card-subtitle>
+    {{ subtitle }}
+  </mat-card-subtitle>
+</mat-card-header>
 
-  <!-- > chosen Therapy <!-->
-  <mat-card-content>
-        <mat-form-field class="therapy-select" subscriptSizing="dynamic">
-          <mat-label>Pick your planned chemotherapy:</mat-label>
-        <mat-select
-          [(value)]="chosenTherapy"
-          color="primary"
+<!-- > chosen Therapy <!-->
+<mat-card-content>
+  <mat-form-field class="therapy-select" subscriptSizing="dynamic">
+    <mat-label>Pick your planned chemotherapy:</mat-label>
+    <mat-select [(value)]="chosenTherapy" color="primary">
+      <mat-option *ngFor="let therapy of therapies" [value]="therapy">
+        {{ therapy.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- > Risk <!-->
+  <mat-card class="cell-container">
+    <mat-card-header>
+      <mat-card-title> Risk </mat-card-title>
+      <mat-card-subtitle> Your estimated risk is: </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <button
+        *ngIf="FLAG"
+        mat-raised-button
+        class="risk-button"
+        [color]="resultColor"
+      >
+        {{ resultName }}
+      </button>
+      <div hidden (change)="displayResult()">
+        {{ calculateRisk() }}
+      </div>
+    </mat-card-content>
+    &nbsp;
+    <!-- > Recommendations <!-->
+    <mat-card-header>
+      <mat-card-title> Recommendations </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <p
+          class="recommendation"
+          *ngFor="let rec of resultRecommendation?.recommendations"
         >
-          <mat-option
-            *ngFor="let therapy of therapies"
-            [value]="therapy"
-          >
-            {{ therapy.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+          {{ rec }}
+        </p>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
 
-    <!-- > Risk <!-->
-    <mat-card class="cell-container">
-      <mat-card-header>
-        <mat-card-title> Risk </mat-card-title>
-        <mat-card-subtitle> Your estimated risk is: </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <button *ngIf="FLAG" mat-raised-button class="risk-button" [color]="resultColor">
-          {{ resultName }}
+  <!-- > Options <!-->
+  <mat-card class="cell-container">
+    <mat-card-header>
+      <div class="flex-container">
+        <mat-card-title>
+          <div>Options</div>
+        </mat-card-title>
+        <button mat-stroked-button color="warn" (click)="reset(chosenTherapy)">
+          reset
         </button>
-        <div hidden (change)="displayResult()">
-          {{ calculateRisk() }}
-        </div>
-      </mat-card-content>
-      &nbsp;
-      <!-- > Recommendations <!-->
-      <mat-card-header>
-        <mat-card-title> Recommendations </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <p
-            class="recommendation"
-            *ngFor="let rec of resultRecommendation?.recommendations"
-          >
-            {{ rec }}
-          </p>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-
-    <!-- > Options <!-->
-    <mat-card class="cell-container">
-      <mat-card-header>
-        <div class="flex-container">
-          <mat-card-title>
-            <div>Options</div>
-          </mat-card-title>
-          <button
-            mat-stroked-button
-            color="warn"
-            (click)="reset(chosenTherapy)"
-          >
-            reset
-          </button>
-        </div>
-      </mat-card-header>
-      <mat-card-content>
-        <app-options-field
-          [optionFields]="chosenTherapy.option_fields"
-        ></app-options-field>
-        <app-slider-field
-          [sliderFields]="chosenTherapy.slider_fields"
-        ></app-slider-field>
-      </mat-card-content>
-    </mat-card>
-  </mat-card-content>
-  <p class="footer">
-    *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). This 
-    Tool is currently under development and should not be used for clinical 
-    decision making yet. Usage is at your own risk. No warranty or responsibility 
-    taken by the host or its head association.
-  </p>
-  <p>&nbsp;</p>
-</div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <app-options-field
+        [optionFields]="chosenTherapy.option_fields"
+      ></app-options-field>
+      <app-slider-field
+        [sliderFields]="chosenTherapy.slider_fields"
+      ></app-slider-field>
+    </mat-card-content>
+  </mat-card>
+</mat-card-content>
+<p class="footer">
+  *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). This Tool
+  is currently under development and should not be used for clinical decision
+  making yet. Usage is at your own risk. No warranty or responsibility taken by
+  the host or its head association.
+</p>
+<p>&nbsp;</p>

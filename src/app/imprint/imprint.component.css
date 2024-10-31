@@ -1,0 +1,12 @@
+strong {
+  color: #000;
+}
+
+.mat-mdc-card-header {
+  padding: clamp(0.2rem, 3%, 2rem) 0 clamp(0.2rem, 3%, 2rem) 1rem;
+}
+
+.mat-mdc-card-content {
+  padding-top: 0 !important;
+  padding: clamp(0.2rem, 3%, 2rem);
+}

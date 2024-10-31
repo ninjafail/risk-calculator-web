@@ -18,6 +18,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ImprintComponent } from './imprint/imprint.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
     MatRadioModule,
     MatSlideToggleModule,
     MatListModule,
@@ -43,6 +47,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSortModule,
     ReactiveFormsModule,
     MatGridListModule,
+    ImprintComponent,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

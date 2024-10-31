@@ -1,0 +1,27 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  height: 90%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.app-container {
+    max-width: 50rem;
+    width: 100%;
+    min-height: 90%;
+    padding: 0;
+    margin: auto;
+    align-self: center;
+}
+
+.footer {
+    height: 10%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
