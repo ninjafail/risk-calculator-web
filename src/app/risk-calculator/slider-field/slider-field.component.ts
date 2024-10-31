@@ -13,7 +13,6 @@ export class SliderFieldComponent {
   change(df: DataField) {
     if (df.isChecked()) df.uncheck();
     else df.check();
-    console.log(df.isChecked())
   }
 
   displayCheck(df: DataField): string {

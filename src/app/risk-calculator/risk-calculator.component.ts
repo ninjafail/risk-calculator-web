@@ -22,7 +22,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-risk-calculator',
   templateUrl: './risk-calculator.component.html',
-  styleUrls: ['./risk-calculator.component.css'],
+  styleUrls: ['./risk-calculator.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class RiskCalculatorComponent implements OnInit {
@@ -123,8 +123,6 @@ export class RiskCalculatorComponent implements OnInit {
     this.resultRecommendation = this.chosenTherapy.recommendations.find(
       (rec) => {
         const condition = rec.condition;
-        console.log(condition);
-        console.log(this.isConditionTrue(condition));
         return this.isConditionTrue(rec.condition);
       }
     );

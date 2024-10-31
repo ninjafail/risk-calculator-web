@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 90%;
@@ -12,6 +13,23 @@ body, html {
   box-sizing: inherit;
 }
 
+.mat-mdc-card-header {
+  padding: clamp(0.2rem, 3%, 2rem) clamp(0.2rem, 3%, 2rem) 0;
+}
+
+.mat-mdc-card-content {
+  padding: 0 clamp(0.2rem, 3%, 2rem);
+}
+
+.therapy-select {
+  width: clamp(10rem, 96%, 30rem);
+  margin: clamp(0.2rem, 2%, 2rem);
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+  }
+}
+
 .risk-calc-container {
   max-width: 50rem;
   width: 100%;
@@ -22,7 +40,6 @@ body, html {
 }
 
 .cell-container {
-  padding: 1rem;
   margin: 1%;
   align-self: center;
 }

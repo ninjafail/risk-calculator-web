@@ -12,7 +12,10 @@
   align-items: center;
 }
 
-.flex-container p {
-  margin-right: 1rem;
+.mdc-list-item {
+  height: auto;
 }
 
+.flex-container p {
+  margin: 0 1rem clamp(0.2rem, 2%, 1rem) 0;
+}

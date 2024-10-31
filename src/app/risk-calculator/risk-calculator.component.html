@@ -10,26 +10,19 @@
 
   <!-- > chosen Therapy <!-->
   <mat-card-content>
-    <mat-card class="cell-container">
-      <mat-card-header>
-        <mat-card-title> Planned chemotherapy </mat-card-title>
-        <mat-card-subtitle> Pick your chosen therapy: </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-radio-group
-          class="therapy-radio-group"
-          [(ngModel)]="chosenTherapy"
+        <mat-form-field class="therapy-select" subscriptSizing="dynamic">
+          <mat-label>Pick your planned chemotherapy:</mat-label>
+        <mat-select
+          [(value)]="chosenTherapy"
         >
-          <mat-radio-button
-            class="therapy-radio-button"
+          <mat-option
             *ngFor="let therapy of therapies"
             [value]="therapy"
           >
             {{ therapy.name }}
-          </mat-radio-button>
-        </mat-radio-group>
-      </mat-card-content>
-    </mat-card>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
     <!-- > Risk <!-->
     <mat-card class="cell-container">
