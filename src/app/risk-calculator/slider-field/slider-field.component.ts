@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { DataField } from "../therapy.classes";
+import { SliderField } from "../classes/stratification.classes";
 
 @Component({
   selector: 'app-slider-field',
@@ -7,10 +7,10 @@ import { DataField } from "../therapy.classes";
   styleUrls: ['./slider-field.component.css']
 })
 export class SliderFieldComponent {
-  @Input() sliderFields!: DataField[];
+  @Input() sliderFields!: SliderField[];
   constructor() { }
 
-  change(df: DataField) {
+  change(df: SliderField) {
     if (df.isChecked()) df.uncheck();
     else df.check();
   }

@@ -1,7 +1,7 @@
 <mat-list>
   <mat-list-item *ngFor="let df of sliderFields">
     <div class="flex-container">
-      <p class="left">{{ df.name }}</p>
+      <p class="left">{{ df.title | translate }}</p>
       <mat-slide-toggle (toggleChange)="change(df)" [checked]="df.isChecked()">
       </mat-slide-toggle>
     </div>

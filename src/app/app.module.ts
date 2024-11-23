@@ -21,6 +21,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ImprintComponent } from './imprint/imprint.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { TranslatePipe } from './translation.pipe';
+import { LocaleSwitcherComponent } from "./locale-switcher/locale-switcher.component";
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RiskCalculatorComponent,
     OptionsFieldComponent,
     SliderFieldComponent,
+    TranslatePipe,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatGridListModule,
     ImprintComponent,
     AppRoutingModule,
-  ],
+    LocaleSwitcherComponent,
+    HttpClientModule,
+    TranslocoRootModule
+],
   providers: [],
   bootstrap: [AppComponent],
 })

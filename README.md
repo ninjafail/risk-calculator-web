@@ -14,6 +14,7 @@ after installing all node packages via `npm i` and angular cli version `npm i -g
 The therapies are stored in a data structure and displayed baed on that data. If you want a therapy to be added please open a issue or just send me the data in the following format.
 
 ```js
+// WARNING: OUTDATED, DO NOT USE
 // L: LOW (0); M1, M2: MEDIUM(1,2); H: HIGH(5); VH: VERY HIGH(100)
 {
   name: 'name of the therapy',

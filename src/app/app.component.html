@@ -1,7 +1,12 @@
+<mat-toolbar class="header">
+  <a mat-button routerLink="/" routerLinkActive="active">{{ 'risk-calculator' | transloco }}</a>
+  <div class="spacer"></div>
+  <app-locale-switcher></app-locale-switcher>
+</mat-toolbar>
 <div class="app-container">
   <router-outlet></router-outlet>
 </div>
 <mat-toolbar class="footer">
-  <a mat-button routerLink="/" routerLinkActive="active"> Risk Calculator </a>
-  <a mat-button routerLink="/imprint" routerLinkActive="active">Impressum</a>
+  <a mat-button routerLink="/" routerLinkActive="active">{{ 'risk-calculator' | transloco }}</a>
+  <a mat-button routerLink="/imprint" routerLinkActive="active">{{ 'impressum-legal-notice' | transloco }}</a>
 </mat-toolbar>

@@ -1,12 +1,15 @@
 <div>
   <mat-card-header>
-    <mat-card-title>Impressum</mat-card-title>
+    <mat-card-title>{{ 'impressum-legal-notice' | transloco }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-card>
       <mat-card-content>
-        <p><strong>Verantwortliche: </strong>Sebastian und Florian Romann</p>
-        <p><strong>Kontakt: </strong>{{ email }}</p>
+        <p>
+          <strong>{{ 'verantwortliche-responsible-for-content' | transloco }}</strong> Sebastian
+          und Florian Romann
+        </p>
+        <p><strong>{{ 'kontakt-contact' | transloco }}</strong> {{ email }}</p>
       </mat-card-content>
     </mat-card>
   </mat-card-content>

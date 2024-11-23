@@ -1,23 +1,21 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
 } from '@angular/core';
 import {
-  Condition,
-  DataField,
   OptionField,
-  Recommendation,
   Therapy,
-  Weight,
-} from './therapy.classes';
-import { THERAPIES_DATA } from './therapies.data';
+  Stratification,
+  CheckableWeightedField,
+} from './classes/stratification.classes';
 import { ThemePalette } from '@angular/material/core';
 import { FormControl } from '@angular/forms';
+import { TranslatableText, Weight } from './classes/stratification.types';
+import { Condition } from './classes/condition.types';
+import { CARDIOVASCULAR_TOXICITY_RISK_STRATIFICATION } from './data/cardio-tox-risk-translation.data';
+import { translate } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-risk-calculator',
@@ -26,19 +24,22 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class RiskCalculatorComponent implements OnInit {
-  title: string = 'Baseline cardiovascular toxicity risk stratification';
-  subtitle: string = 'Calculate your baseline cardiovascular toxicity risk';
+  stratification: Stratification = CARDIOVASCULAR_TOXICITY_RISK_STRATIFICATION;
+  title: TranslatableText = this.stratification.title;
+  subtitle: TranslatableText = this.stratification.subtitle;
+  therapySelectionLabel: TranslatableText =
+    this.stratification.therapySelectionLabel;
 
-  therapies: Therapy[] = THERAPIES_DATA;
+  therapies: Therapy[] = this.stratification.therapies;
   chosenTherapy: Therapy = this.therapies[0];
-  resName = new FormControl('LOW');
+  resName = new FormControl(translate('low-upper'));
   colorPlain: ThemePalette = undefined;
   resColor = new FormControl(this.colorPlain);
 
   FLAG = true;
-  resultName: string = 'LOW';
+  resultName: string = translate('low-upper');
   @Input() resultColor: ThemePalette = undefined;
-  resultRecommendation?: Recommendation;
+  resultRecommendations?: TranslatableText[];
   resultRisk: number = 0;
 
   constructor() {}
@@ -54,10 +55,10 @@ export class RiskCalculatorComponent implements OnInit {
     // possibly in resulting into multiple checked options(radio-buttons)
     therapy.option_fields.map((of) => {
       of.options.map((df) => df.uncheck());
-      if (of.name === 'LVEF') of.options[of.options.length - 1].check();
+      if (of.title === 'LVEF') of.options[of.options.length - 1].check();
       else of.options[0].check();
     });
-    therapy.slider_fields.map((df) => df.uncheck())
+    therapy.slider_fields.map((df) => df.uncheck());
     // (of.options.find((df) => df.weight === Weight.L)??of.options[0]).check()
     this.calculateRisk();
   }
@@ -69,7 +70,7 @@ export class RiskCalculatorComponent implements OnInit {
       }, 0);
     }
 
-    function getDfWeights(dfArr: DataField[]): number[] {
+    function getDfWeights(dfArr: CheckableWeightedField[]): number[] {
       return dfArr.map((df) => df.getWeight());
     }
 
@@ -92,40 +93,39 @@ export class RiskCalculatorComponent implements OnInit {
 
   giveRisk() {
     if (this.resultRisk < Weight.M1) {
-      this.resName.setValue('LOW');
+      this.resName.setValue(translate('low-upper'));
       this.resColor.setValue(this.colorPlain);
     } else if (this.resultRisk < Weight.H) {
-      this.resName.setValue('MEDIUM');
+      this.resName.setValue(translate('medium-upper'));
       this.resColor.setValue('primary');
     } else if (this.resultRisk < Weight.VH) {
-      this.resName.setValue('HIGH');
+      this.resName.setValue(translate('high-upper'));
       this.resColor.setValue('accent');
     } else {
-      this.resName.setValue('VERY HIGH');
+      this.resName.setValue(translate('very-high-upper'));
       this.resColor.setValue('warn');
     }
     if (this.resultRisk < Weight.M1) {
-      this.resultName = 'LOW';
+      this.resultName = translate('low-upper');
       this.resultColor = undefined;
     } else if (this.resultRisk < Weight.H) {
-      this.resultName = 'MEDIUM';
+      this.resultName = translate('medium-upper');
       this.resultColor = 'primary';
     } else if (this.resultRisk < Weight.VH) {
-      this.resultName = 'HIGH';
+      this.resultName = translate('high-upper');
       this.resultColor = 'accent';
     } else {
-      this.resultName = 'VERY HIGH';
+      this.resultName = translate('very-high-upper');
       this.resultColor = 'warn';
     }
   }
 
   giveRecommendation() {
-    this.resultRecommendation = this.chosenTherapy.recommendations.find(
-      (rec) => {
+    this.resultRecommendations =
+      this.chosenTherapy.suggestedRecommendations.find((rec) => {
         const condition = rec.condition;
         return this.isConditionTrue(rec.condition);
-      }
-    );
+      })?.recommendations;
   }
 
   isConditionTrue(condition: Condition): boolean {
@@ -149,27 +149,27 @@ export class RiskCalculatorComponent implements OnInit {
         );
       case 'SELECT':
         const sliderField = this.chosenTherapy.slider_fields.find(
-          (df) => df.name === condition.select
+          (df) => df.id === condition.selectId
         );
         if (!sliderField)
           throw new Error(
-            `Couldn't find slider with name: ${condition.select}`
+            `Couldn't find slider with id: ${condition.selectId}`
           );
         return sliderField.isChecked();
       case 'OPTION':
         const optionField = this.chosenTherapy.option_fields.find(
-          (optionField) => optionField.name === condition.option
+          (optionField) => optionField.id === condition.optionId
         );
         if (!optionField)
           throw new Error(
-            `Couldn't find option with name: ${condition.option}`
+            `Couldn't find option with id: ${condition.optionId}`
           );
         const dataField = optionField.options.find(
-          (df) => df.name === condition.value
+          (df) => df.title === condition.value
         );
         if (!dataField)
           throw new Error(
-            `Couldn't find data field with name: ${condition.value}`
+            `Couldn't find data field with id: ${condition.value}`
           );
         return dataField.isChecked();
     }

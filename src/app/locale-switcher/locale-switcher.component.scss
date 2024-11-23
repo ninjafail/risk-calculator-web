@@ -1,0 +1,7 @@
+mat-form-field {
+    width: 7.5rem;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none; 
+}

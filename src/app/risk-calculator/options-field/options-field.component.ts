@@ -1,6 +1,5 @@
 import {Component, Input } from '@angular/core';
-import {DataField, OptionField} from "../therapy.classes";
-import {getLocaleDateFormat} from "@angular/common";
+import {SliderField, OptionField, CheckableWeightedField} from "../classes/stratification.classes";
 
 @Component({
   selector: 'app-options-field',
@@ -12,7 +11,7 @@ export class OptionsFieldComponent {
 
   constructor() { }
 
-  setOption(of: OptionField, df: DataField) {
+  setOption(of: OptionField, df: CheckableWeightedField) {
     of.options.map((df) => df.uncheck())
     df.check()
   }

@@ -1,7 +1,7 @@
 <mat-list>
   <mat-list-item *ngFor="let optionField of optionFields">
     <div class="flex-container">
-      <p>{{ optionField.name }}</p>
+      <p>{{ optionField.title | translate }}</p>
       <mat-radio-group>
         <mat-radio-button
           *ngFor="let dfoption of optionField.options"
@@ -9,7 +9,7 @@
           (change)="setOption(optionField, dfoption)"
           [checked]="dfoption.isChecked()"
         >
-          {{ dfoption.name }}
+          {{ dfoption.title | translate }}
         </mat-radio-button>
       </mat-radio-group>
     </div>

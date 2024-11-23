@@ -1,19 +1,19 @@
 <mat-card-header>
   <mat-card-title>
-    {{ title }}
+    {{ title | translate }}
   </mat-card-title>
   <mat-card-subtitle>
-    {{ subtitle }}
+    {{ subtitle | translate }}
   </mat-card-subtitle>
 </mat-card-header>
 
 <!-- > chosen Therapy <!-->
 <mat-card-content>
   <mat-form-field class="therapy-select" subscriptSizing="dynamic">
-    <mat-label>Pick your planned chemotherapy:</mat-label>
+    <mat-label> {{ therapySelectionLabel | translate }}</mat-label>
     <mat-select [(value)]="chosenTherapy" color="primary">
       <mat-option *ngFor="let therapy of therapies" [value]="therapy">
-        {{ therapy.name }}
+        {{ therapy.title | translate }}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -21,8 +21,10 @@
   <!-- > Risk <!-->
   <mat-card class="cell-container">
     <mat-card-header>
-      <mat-card-title> Risk </mat-card-title>
-      <mat-card-subtitle> Your estimated risk is: </mat-card-subtitle>
+      <mat-card-title>{{ "risk" | transloco }}</mat-card-title>
+      <mat-card-subtitle>{{
+        "your-estimated-risk-is" | transloco
+      }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="risk-button-container">
       <button
@@ -40,15 +42,12 @@
     &nbsp;
     <!-- > Recommendations <!-->
     <mat-card-header>
-      <mat-card-title> Recommendations </mat-card-title>
+      <mat-card-title>{{ "recommendations" | transloco }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-list>
-        <p
-          class="recommendation"
-          *ngFor="let rec of resultRecommendation?.recommendations"
-        >
-          {{ rec }}
+        <p class="recommendation" *ngFor="let rec of resultRecommendations">
+          {{ rec | translate }}
         </p>
       </mat-list>
     </mat-card-content>
@@ -59,10 +58,10 @@
     <mat-card-header>
       <div class="flex-container">
         <mat-card-title>
-          <div>Options</div>
+          <div>{{ "options" | transloco }}</div>
         </mat-card-title>
         <button mat-stroked-button color="warn" (click)="reset(chosenTherapy)">
-          reset
+          {{ "reset" | transloco }}
         </button>
       </div>
     </mat-card-header>
@@ -77,9 +76,9 @@
   </mat-card>
 </mat-card-content>
 <p class="footer">
-  *based on 2022 ESC Guidelines on cardio-oncology (Lyon et al. 2022). This Tool
-  is currently under development and should not be used for clinical decision
-  making yet. Usage is at your own risk. No warranty or responsibility taken by
-  the host or its head association.
+  {{
+    "based-on-2022-esc-guidelines-on-cardio-oncology-lyon-et-al-2022-this-tool-is-currently-under-development-and-should-not-be-used-for-clinical-decision-making-yet-usage-is-at-your-own-risk-no-warranty-or-responsibility-taken-by-the-host-or-its-head-association"
+      | transloco
+  }}
 </p>
 <p>&nbsp;</p>
