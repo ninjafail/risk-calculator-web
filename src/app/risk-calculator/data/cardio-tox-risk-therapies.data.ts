@@ -19,6 +19,7 @@ export const therapies: ITherapy[] = [
           { title: '65-79', weight: M2 },
           { title: '≥ 80', weight: H },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -27,6 +28,7 @@ export const therapies: ITherapy[] = [
           { title: '50-54%', weight: M2 },
           { title: '≥ 55%', weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [
@@ -88,6 +90,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '65-79' }, weight: M2 },
           { title: { en: '≥ 80' }, weight: H },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -96,6 +99,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '50-54%' }, weight: M2 },
           { title: { en: '≥ 55%' }, weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [
@@ -148,6 +152,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '65-74' }, weight: M1 },
           { title: { en: '≥ 75' }, weight: H },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -156,6 +161,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '50-54%' }, weight: M2 },
           { title: { en: '≥ 55%' }, weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [
@@ -228,6 +234,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '65-74' }, weight: M2 },
           { title: { en: '≥ 75' }, weight: H },
         ],
+        defaultOptionId: '< 60',
       },
       {
         id: 'lvef',
@@ -236,6 +243,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '50-54%' }, weight: L },
           { title: { en: '≥ 55%' }, weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [
@@ -278,6 +286,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '65-74' }, weight: M1 },
           { title: { en: '≥ 75' }, weight: H },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -286,6 +295,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '50-54%' }, weight: M2 },
           { title: { en: '≥ 55%' }, weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [
@@ -371,6 +381,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '< 65' }, weight: L },
           { title: { en: '≥ 65' }, weight: M1 },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -379,6 +390,7 @@ export const therapies: ITherapy[] = [
           { title: { en: '50-54%' }, weight: M2 },
           { title: { en: '≥ 55%' }, weight: L },
         ],
+        defaultOptionId: '≥ 55%',
       },
     ],
     sliderIds: [

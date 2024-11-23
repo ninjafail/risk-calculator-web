@@ -62,6 +62,7 @@ export let therapies: ITherapy[] = [
           { title: '< 65', weight: L },
           { title: '≥ 65', weight: M1 },
         ],
+        defaultOptionId: '< 65',
       },
       {
         id: 'lvef',
@@ -70,6 +71,7 @@ export let therapies: ITherapy[] = [
           { title: '50-54%', weight: M2 },
           { title: '≥ 55%', weight: L },
         ],
+        defaultOptionId: '< 50%',
       },
     ],
     sliderIds: [

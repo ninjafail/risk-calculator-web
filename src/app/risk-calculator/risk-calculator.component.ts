@@ -54,11 +54,9 @@ export class RiskCalculatorComponent implements OnInit {
     // should not be the case, but if another value is checked, this does not uncheck the other options,
     // possibly in resulting into multiple checked options(radio-buttons)
     therapy.option_fields.map((of) => {
-      of.options.map((df) => df.uncheck());
-      if (of.title === 'LVEF') of.options[of.options.length - 1].check();
-      else of.options[0].check();
+      of.options.map((df) => df.reset());
     });
-    therapy.slider_fields.map((df) => df.uncheck());
+    therapy.slider_fields.map((df) => df.reset());
     // (of.options.find((df) => df.weight === Weight.L)??of.options[0]).check()
     this.calculateRisk();
   }

@@ -37,10 +37,13 @@ export interface IRecommendation extends ISelectable {
 export interface IOption extends ITitled, IWeighted {}
 export interface ITherapyOption extends ISelectable {
   options: IOption[];
+  defaultOptionId: string;
 }
 // TODO: likely rename Slider to Check
 // TODO: Add new interface for Select box 
-export interface ITherapySlider extends ISelectable, IWeighted {}
+export interface ITherapySlider extends ISelectable, IWeighted {
+  default?: boolean;
+}
 export interface ITherapy extends ITitled {
   optionIds: ITherapyOption[]; // list of option field IDs that are needed
   sliderIds: ITherapySlider[]; // list of slieder field IDs that are needed

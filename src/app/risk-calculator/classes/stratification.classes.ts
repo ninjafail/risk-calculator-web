@@ -13,10 +13,16 @@ export class CheckableWeightedField {
   title: TranslatableText;
   protected weight: Weight = Weight.L;
   protected checked: boolean = false;
+  protected default: boolean = false;
 
-  constructor(title: TranslatableText, weight: Weight) {
+  constructor(
+    title: TranslatableText,
+    weight: Weight,
+    defaultChecked: boolean
+  ) {
     this.title = title;
     this.weight = weight;
+    this.default = defaultChecked;
   }
 
   check() {
@@ -25,6 +31,10 @@ export class CheckableWeightedField {
 
   uncheck() {
     this.checked = false;
+  }
+
+  reset() {
+    this.checked = this.default;
   }
 
   isChecked() {
@@ -40,8 +50,8 @@ export class CheckableWeightedField {
 export class SliderField extends CheckableWeightedField {
   id: string;
 
-  constructor(sf: IField, weight: Weight) {
-    super(sf.title, weight);
+  constructor(sf: IField, weight: Weight, defaultChecked = false) {
+    super(sf.title, weight, defaultChecked);
     this.id = sf.id;
   }
 }
@@ -50,13 +60,16 @@ export class OptionField {
   id: string;
   title: TranslatableText;
   options: CheckableWeightedField[];
+  defaultOptionId: string;
 
-  constructor(of: IField, options: IOption[]) {
+  constructor(of: IField, options: IOption[], defaultOptionId: string) {
     this.id = of.id;
     this.title = of.title;
-    this.options = options.map(
-      (cwf) => new CheckableWeightedField(cwf.title, cwf.weight)
-    );
+    this.options = options.map((cwf) => {
+      const isDefault = defaultOptionId === cwf.title;
+      return new CheckableWeightedField(cwf.title, cwf.weight, isDefault);
+    });
+    this.defaultOptionId = defaultOptionId;
   }
 
   getWeight(): number {
@@ -141,15 +154,24 @@ export function createTherapy(
     t.title,
     t.optionIds.map((tOpt) => {
       try {
-        return new OptionField(data.option_fields[tOpt.id], tOpt.options);
+        return new OptionField(
+          data.option_fields[tOpt.id],
+          tOpt.options,
+          tOpt.defaultOptionId
+        );
       } catch (e) {
         console.error('OptionField not found:', tOpt.id, e);
-        return new OptionField({ id: '', title: { en: '', de: '' } }, []);
+        return new OptionField({ id: '', title: { en: '', de: '' } }, [], '');
       }
     }),
     t.sliderIds.map((tSf) => {
       try {
-        return new SliderField(data.slider_fields[tSf.id], tSf.weight);
+        const defaultChecked: boolean = tSf.default ?? false;
+        return new SliderField(
+          data.slider_fields[tSf.id],
+          tSf.weight,
+          defaultChecked
+        );
       } catch (e) {
         console.error('SliderField not found:', tSf.id, e);
         return new SliderField({ id: '', title: { en: '', de: '' } }, Weight.L);
