@@ -13,7 +13,7 @@ const strat: IStratification = {
   },
   therapySlectionLabel: {
     en: 'Pick your planned chemotherapy:',
-    it: 'Seleziona la tua terapia scelta:'
+    it: 'Seleziona la tua terapia scelta:',
   },
   option_fields: [
     {
