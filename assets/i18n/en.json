@@ -13,5 +13,19 @@
   "low-upper": "LOW",
   "medium-upper": "MEDIUM",
   "high-upper": "HIGH",
-  "very-high-upper": "VERY HIGH"
+  "very-high-upper": "VERY HIGH",
+  "herausgeber": "Herausgeber",
+  "herausgeber-info-l1": "Dr. med. Sebastian Romann",
+  "herausgeber-info-l2": "Hardstr. 29,",
+  "herausgeber-info-l3": "78239 Rielasingen-Worblingen",
+  "kontakt": "Kontakt",
+  "kontakt-info": "E-Mail: info@octo-con.de",
+  "technisches-konzept": "Technisches Konzept, Design und Umsetzung",
+  "technisches-konzept-info": "Octopus Consulting GmbH",
+  "haftungseinschraenkung": "Haftungseinschränkung",
+  "haftungseinschraenkung-info-l1": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Insbesondere findet keine medizinische Beratung statt. Es handelt sich lediglich um eine Wissensdatenbank wissenschaftlich veröffentlichter Leitlinien und Handlungsempfehlung. Es wird keine Haftung für etwaige Behandlungsfehler der behandelnden Ärzte übernommen.",
+  "haftungseinschraenkung-info-l2": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.",
+  "urheberrecht": "Urheberrecht",
+  "urheberrecht-info": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Insbesondere basieren die Inhalte der Website auf wissenschaftlich publizierten Arbeiten wie der Kardioonkologischen Leitlinie 2022 (ESC Guidelines on cardio-oncology, Lyon et al. 2022)",
+  "gdpr": "Privacy Policy - Datenschutzerkärung"
 }
